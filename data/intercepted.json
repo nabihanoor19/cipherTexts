@@ -1,0 +1,24 @@
+{
+  "roll_number": "23L-0967",
+  "case": "NORTHSTAR",
+  "rail_depth_range": [
+    2,
+    8
+  ],
+  "cipher_files": {
+    "mono": "assets/mono_ciphertext.txt",
+    "vigenere": "assets/vigenere_ciphertext.txt",
+    "rail": "assets/rail_ciphertext.txt"
+  },
+  "investigator_note": "Vigenere formula: K_i = (d_i + i) mod 26, where i begins at 0, d_i is the repeating roll-number digit sequence, A=0 through Z=25, and key length is 10 letters. Nonletters neither change nor advance the key.",
+  "confirmed_cribs": [
+    {
+      "ciphertext": "zwwazuae",
+      "plaintext": "APPEARED"
+    },
+    {
+      "ciphertext": "NUZGOALQ",
+      "plaintext": "FRAGMENT"
+    }
+  ]
+}
