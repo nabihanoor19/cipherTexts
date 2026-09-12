@@ -5,6 +5,7 @@ from pathlib import Path
 ROLL_DIGITS = "230967"
 KEY_LENGTH = 10
 DEFAULT_INPUT = Path(__file__).parent / "assets" / "vigenere_ciphertext.txt"
+DEFAULT_CIPHERTEXT = 'C vgbombsvy cprtknmdqu mia ykesc bzkw kzdqzmmhvif yoeakow. Kxu hkxcoa uqqg rbau dpw tsnx-xgulmj fmiude ixl lji habycvi zkhfqx uv dpw rstfkx. Jooap gqgxfqxo sv dgdy, bzoawtzg zyztoblgvu, mxp uydw vlg wok xyaavmqz yzti ngt enbrmjobae gjmbmkdmju.\n\nWVMQQ NVIY: EXH{HSSMXMJG_80gc10p7058m04m89925928jm2l60w25}\nQXR RBMOWMFV: i39876754011f75rno1l5k749jvce8h90o39o7630051n7ik41k3w47dj294800hm8pr87j5\nUMQ RSUUDUWX: 2 WX 3.\n'
 
 
 def derive_key(roll_digits: str) -> str:
@@ -40,7 +41,11 @@ def decrypt(ciphertext: str, key: str) -> str:
 
 
 def main() -> None:
-    ciphertext = DEFAULT_INPUT.read_text(encoding="utf-8")
+    ciphertext = (
+        DEFAULT_INPUT.read_text(encoding="utf-8")
+        if DEFAULT_INPUT.exists()
+        else DEFAULT_CIPHERTEXT
+    )
     key = derive_key(ROLL_DIGITS)
     plaintext = decrypt(ciphertext, key)
 

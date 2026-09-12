@@ -7,6 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 DEFAULT_INPUT = Path(__file__).parent / "assets" / "mono_ciphertext.txt"
+DEFAULT_CIPHERTEXT = 'Qba jldjealq lmqahmmx eakdujhae z svjaq faaxale kbjnq jl qba dzowvk laqfmux dalqua. Z hzdxvw dmowtaqae lmuozttp, qfm kalkmuk hujantp tmkq wmfau, zle z kaztae aliatmwa zwwazuae hakjea qba dmlkmta. Kmoamla bze quzlknmuoae azdb ztwbzhaqjd dbzuzdqau fjqb mla njrae kaduaq ztwbzhaq fbjta tazijlg fmue hmvlezujak vlqmvdbae. Qba jliakqjgzqjml hagzl fjqb dmvlqk zle dmooml fmue kbzwak, lmq z kazudb qbumvgb aiaup wmkkjhta xap. Azdb uadmiauae taqqau ozea qba larq gvakk omua dmlkquzjlae. Fbal z wbuzka kaaoae wtzvkjhta, zlztpkqk dbadxae jq zgzjlkq aiaup mddvuualda hanmua arqalejlg qba ozw. Z kmvle kmtvqjml dmohjlak kqzqjkqjdk, uadmgljczhta tzlgvzga, zle arzdq ua-aldupwqjml. Emdvoalq qba nuasvaldp qzhta zle wzuqjzt kvhkqjqvqjmlk qbzq tae numo lmjka qm aijealda.\n\nKQZGA NTZG: DQN{OMLM_z2a3003267024e3d0en6ena740ddh0da}\nMQW NUZGOALQ: 9154793h7a4628342d99h15zn89e7z14az98ahaz0ah7ne16675e5d3dd86067ed809h867n\nXAP WMKJQJML: 1 MN 3.\n'
 
 COMPLETED_MAP = {
     "A": "E",
@@ -95,7 +96,11 @@ def main() -> None:
         help="Additional cipher-to-plain pairs, for example z=a,w=p",
     )
     arguments = parser.parse_args()
-    ciphertext = arguments.input.read_text(encoding="utf-8")
+    ciphertext = (
+        arguments.input.read_text(encoding="utf-8")
+        if arguments.input.exists()
+        else DEFAULT_CIPHERTEXT
+    )
 
     frequencies = Counter(letter for letter in ciphertext.upper() if letter.isalpha())
     print("Letter frequencies:")
