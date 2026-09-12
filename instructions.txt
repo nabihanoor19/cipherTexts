@@ -1,0 +1,9 @@
+Clarification Regarding Cipher Keys
+
+
+Please follow these instructions when determining the keys for each cipher:
+Use all digits from your complete roll number, including the first two digits. For example, 22L-7776 gives 227776, not 7776. This sequence is not the final key. Locate the key-derivation instructions within your personalized assignment files and use them to calculate the actual key.
+Do not use your roll number as the key. Analyze your personalized ciphertext and use the information discovered within your assignment portal.
+Do not use your roll number as the depth. Your program must test every depth from 2 through 8.
+Do not use your roll number as the key. Reconstruct the key by arranging the position-labelled hexadecimal fragments recovered from the three cipher stages.
+All students have personalized ciphertexts, clues, fragments, keys, and flags. Use only the ZIP file matching your own roll number. Locating the relevant instructions within your supplied files is part of the investigation.
